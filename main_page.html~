@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Mario's Bioinformatics Practical Project </title>
+
+<link rel="stylesheet" type="text7css" href="styles.css">
+
+<body style='background-color:black'>
+
+<div id='wrapper'>
+
+<div id='header'>
+<a href='main_page.html'><h1>Mario L. Martin Bioinformatics Project</h1>> </a>
+</div>
+
+<ul id='Menu'> <!-- Menu starts here -->
+	<li> <!-- Main Page button -->
+		<a href='main_page.html' aria-haspopup='true'>Main Page</a>
+			</li> <!-- End of Main Page button -->
+	<li> <!-- Profile Button -->
+                <a href='profile.html' aria-haspopup='true'>Mario's Profile</a>
+                        </li> <!-- End of Profile button -->
+	<li> <!-- Project information button -->
+                <a href='information.html' aria-haspopup='true'>Project Information</a>
+                        </li> <!-- End of Project Information button -->
+	<li> <!-- Database -->
+                <a href='database.html' aria-haspopup='true'>Database</a>
+                        </li> <!-- End Database button -->
+	</ul> <!-- Menu Ends here -->
+	<div id='banner'></div>
+
+<div id='content'>
+This is Mario's Bioinformatic Practical Project Main Page. Use the menu in the top to acces to the different sites. Have fun! <img src='http://i290photobucket.com/albums/11272/laniegruber/smiley.gif' alt='Smiley' sidth='33' height='33'>
+</div>
+
+
+
+<div id='footer'>
+Mario's Practical Project. Powered by lots of Monster and Redbull cans and a few hours of despair.
+</div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+'''Clases for gene representation from the MySQL database'''
+
+import MySQLdb
+
+class DBHandler():
+	'''This class will allow us to connect to our database without having to request accession every single time'''
+	
+	connection=None
+	dbname='mlmartin'
+	dbuser='mlmartin'
+	dbpassword='eWC3c8tn'
+	
+	def __init__(self):
+		'''This method defines how we will connect to our database with the username and password provided in the DBHandler class'''
+
+		if DBHandler.connection == None:
+			DBHandler.connection = MySQLdb.connect(db=DBHandler.dbname, user=DBHandler.dbuser, passwd=DBHandler.dbpassword)
+
+	def cursor (self):
+		'''This method makes the connection'''
+
+		return DBHandler.connection.cursor()
+
+class Gene():
+	'''Includes all the methods for the interpretation of the Gene Table'''
+	geneid=''
+	genetitle=''
+	genesymbol=''
+	probelists=[]
+	
+
+	def __init__(self,geneid):
+		self.geneid=geneid
+		db=DBHandler()
+		cursor=db.cursor
+		'''Defines cursor as the execution of commands in our database'''
+
+		sql='select genetitle, genesymbol from Gene where geneid=%s'
+		cursor.execute(sql,(geneid,))
+		result=cursor.fetchone()
+		
+		self.genetitle=result[0]
+		self.genesymbol=result[1]
+
+		probesql='select probename from Probe where geneid=%s'
+		cursor.execute(probesql, (probename,))
+
+		probes=cursor.fetchall()
+		
+		for probe in probes:
+			self.probelists.append(result[0])
+		'''Append adds a new item at the end of the probelist'''
+
+	
+	def getexpression(self, expressionvalue)
+		
+		samplesql='select samplename from Expression where probename=%s'
+		
+		for probelist in probelists:
+			cursor.execute(sql, (probename,))
+			cursor.fetchall()
+
+
+		expressionsql='select expressionvalue from Expression where samplename=%s'
+		'''No idea what to do here'''
