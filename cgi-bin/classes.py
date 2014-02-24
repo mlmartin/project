@@ -56,9 +56,10 @@ class Gene():
 			self.probelist.append(probe[0])
 		'''Append adds a new item at the end of the probelist'''
 		
-		print(self.geneid)		
-		print(self.genetitle)
-		print(self.genesymbol)
+		print('GeneID: ' + self.geneid)		
+		print('Gene Title: ' + self.genetitle)
+		print('Gene symbol:' + self.genesymbol)
+		print('Corresponding Probe Names:')
 		print(self.probelist)
 		
 	
@@ -129,9 +130,10 @@ class Gene():
 
 
 class Expressed():
-	'''Includes all the methods to get the top 10 genes most expressed at a given time
+	'''Includes all the methods to get the top genes most expressed at a given time.
 	Example: time=classes.Expressed('time','n_req')
-	Example with numbers: time=classes.Expressed('4','10')'''
+	Example with numbers: time=classes.Expressed('4','10')
+	Example of genedetails: time.genedetails('geneid'). The 'geneid' can be chosen from the list of genes retrieved.'''
 
 	time=''
 	probelist=[]
@@ -151,28 +153,23 @@ class Expressed():
 
 		sql='select sum(expressionvalue)/count(expressionvalue) as average, probename from Expression p inner join Sample s on p.samplename=s.samplename where time=%s group by probename order by average desc'
 		cursor.execute(sql, (time,))
-		probes=cursor.fetchmany(10)
+		probes=cursor.fetchmany(100)
 		
 		for probe in probes:
 			self.probelist.append(probe[1])
 			self.expressionlist.append(probe[0])
 		
-		print(self.probelist)
-		print(self.expressionlist)
-	
-	def getgenes(self):
-		db=DBHandler()
-                cursor=db.cursor()
 		genesql='select g.geneid from Gene g inner join Probe p on p.geneid=g.geneid where probename=%s'
+		
 
+		print('Gene\t' + '\tProbename')
 		for p in self.probelist:
 			cursor.execute(genesql, (p,))
 			gene=cursor.fetchone()
-			print(gene, p)
-						
-		
-		
-						
+			if gene is not None:
+				self.genelist.append(gene[0])
+				print(gene, p)
+			
 		print('Top genes being expressed:')
 		print(self.genelist)
 	

@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+ '<!DOCTYPE html>
 
 <html>
 
-<title>Mario's Bioinformatics Practical Project </title>
+<title>Mario L. Martin Bioinformatics Project </title>
 
 <link rel="stylesheet" type="text7css" href="styles.css">
 
@@ -14,16 +14,10 @@
 <a href='main_page.html'><h1>Mario Bioinformatics Project</h1></a>
 </div>
 
-<ul id='Menu'> <!-- Menu starts here -->
-	<li> <!-- Main Page button -->
+<ul id='Menu'> <!-- Menu starts here -->	<li> <!-- Main Page button -->
 		<a href='main_page.html' aria-haspopup='true'>Main Page</a>
 			</li> <!-- End of Main Page button -->
-	<li> <!-- Profile Button -->
-                <a href='profile.html' aria-haspopup='true'>Mario's Profile</a>
-                        </li> <!-- End of Profile button -->
-	<li> <!-- Project information button -->
-                <a href='information.html' aria-haspopup='true'>Project Information</a>
-                        </li> <!-- End of Project Information button -->
+	
 	<li> <!-- Database -->
                 <a href='database.html' aria-haspopup='true'>Database</a>
                         </li> <!-- End Database button -->
@@ -31,6 +25,12 @@
 	<div id='banner'></div>
 
 <div id='content'>
+
+<form id=geneform name=geneform method=POST action=cgi-bin/query2.py>
+        Introduce time: <input type=text size=20 name='topgenes'/>
+                        <input type=submit name=submit value='Submit!'/>
+</form>
+
 <form id=geneform name=geneform method=POST action=cgi-bin/query.py>
 	Introduce GeneID: <input type=text size=20 name='geneid'/>
 			<input type=submit name=submit value='Submit!'/>

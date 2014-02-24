@@ -6,9 +6,9 @@ import classes
 
 form=cgi.FieldStorage()
 
-form['geneid']
+form['topgenes']
 
-gene=classes.Gene(form['geneid'])
+time=classes.Expressed(form['topgenes'])
 
 print'Content-Type: text/html'
 print
@@ -20,5 +20,4 @@ print '<div id='content'><form id=geneform name=geneform method=POST action=cgi-
 print 'Introduce GeneID: <input type=text size=20 name='geneid'/><input type=submit name=submit value='Submit!'/></form></div>'
 print '<div id='footer'>Mario's Practical Project. Powered by lots of Monster and Redbull cans and a few hours of despair</div>'
 print '</body></html>'
-
 
